@@ -6,6 +6,81 @@
     <title>Arrested Development Character Build</title>
 </head>
 <body>
-    
+    <header>
+        <h1 class="hidden">All About the Team</h1>
+        <img src="images/logo.svg" alt="arrested development logo" id="main-logo">
+    </header>
+
+    <main>
+        <h2 class="hidden">Main Navigation</h2>
+        <nav id="character_nav">
+            <ul id="characters">
+                <li>
+                    <a href="#lightbox1">
+                        <img src="images/gob.png" alt="Gob Bluth">
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#lightbox2">
+                        <img src="images/lindsay.png" alt="Lindsay Bluth">
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#lightbox3">
+                        <img src="images/tobias.png" alt="Tobias Funke">
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#lightbox4">
+                        <img src="images/buster.png" alt="Buster Bluth">
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <section id="instructions">
+            <h3>Choose your character!</h3>
+            <p>Use your mouse to hover / click to discover more about each Arrested Development character.</p>
+        </section>
+    </main>
+
+    <footer id="main-footer">
+        <h3>All Images &copy; Arrested Development</h3>
+    </footer>
+
+     <!-- 
+    ================================================================
+    NEW LIGHTBOX MARKUP
+    ================================================================
+    These sections are hidden by default and shown using CSS :target
+    -->
+
+    <!-- Lightbox for Lindsay (Character 2) -->
+    <section class="lightbox" id="lightbox2">
+        <!-- This link closes the lightbox by navigating to a blank hash -->
+        <a href="#" class="close-lightbox">x</a>
+        <div class="lightbox-content">
+            <div class="lb-text-content">
+                <h2>Lindsay Bluth Fünke</h2>
+                <p>Lindsay Bluth Fünke is the adoptive daughter of George and Lucille Bluth. She is selfish, materialistic, and vain, constantly seeking attention and approval. Despite her flaws, she occasionally shows moments of compassion, particularly for her daughter Maeby.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox for Buster (Character 4) -->
+    <section class="lightbox" id="lightbox4">
+        <a href="#" class="close-lightbox">x</a>
+        <div class="lightbox-content">
+            <div class="lb-text-content">
+                <h2>Buster Bluth</h2>
+                <p>Byron "Buster" Bluth is the youngest Bluth son, known for his extreme dependence on his mother, Lucille. He is socially awkward, prone to panic attacks, and has a hook for a hand after a run-in with a "loose seal." Buster is often childlike and easily manipulated by his family.</p>
+            </div>
+        </div>
+    </section>
+    <!-- End of new lightbox markup -->
+
 </body>
 </html>
