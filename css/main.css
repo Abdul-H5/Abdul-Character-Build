@@ -3,3 +3,221 @@
 .hidden { 
     display: none; 
 }
+
+body { 
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: red;
+  color: white;
+}
+
+/* main header rules */
+header {
+    background-color: #fff;
+    padding: 10px 0; 
+}
+
+#main-logo { 
+    width: 300px; 
+    display: block;
+    margin: 0 auto;
+}
+
+/* main rules here */
+#character_nav {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #675050;
+    background-image: url('../images/characters_bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: multiply;
+}
+
+#characters { 
+    list-style-type: none; 
+    padding: 0;
+    text-align: center;
+}
+
+#characters li { 
+    display: inline;
+    margin: 10px 10px;
+    cursor: pointer;
+}
+
+#characters li img {
+    padding: 10px;
+    border: solid 1px #fff;
+    transition: all .5s ease-in;
+    background-color: red;
+    box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, .9);
+}
+
+#characters li a { 
+    text-decoration: none; 
+}
+
+#characters li img:hover { 
+    filter: grayscale(100%);
+    border-radius: 50%;
+}
+
+#instructions { 
+    padding: 20px; 
+}
+
+#instructions h3  {
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 14px;
+}
+
+#instructions p {  
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+}
+
+
+/* footer rules here */
+footer {
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+#main-footer {
+    height: 80px;
+    background-color: black;
+}
+
+/* ================================================================
+NEW LIGHTBOX STYLES
+================================================================
+*/
+
+/* Add keyframe animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+
+.lightbox {
+    /* Hidden by default */
+    display: none;
+    position: fixed; /* Sits on top of the content */
+    z-index: 1000; /* Ensures it's on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.85); /* Made backdrop a bit darker */
+}
+
+/* This is the magic: Show the lightbox when it's targeted */
+.lightbox:target {
+    display: block;
+    /* Apply the fade-in animation when shown */
+    animation: fadeIn 0.4s ease-out;
+}
+
+.lightbox-content {
+    /* This is the box that holds the character info */
+    position: relative;
+    background-color: #fefefe;
+    margin: 5% auto; /* Better for mobile */
+    padding: 0; /* Remove padding, as it's on the child now */
+    border: 1px solid #888;
+    width: 90%; /* More responsive width */
+    max-width: 600px;
+    min-height: 400px; /* Give it some height */
+    border-radius: 10px;
+    color: #333;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.6); /* Added a stronger shadow */
+
+    /* Background image properties */
+    background-position: center;
+    background-size: contain; /* <-- Changed from 'cover' to 'contain' */
+    background-repeat: no-repeat;
+    
+    /* Used to position the text content */
+    display: flex;
+    align-items: flex-end; /* Aligns text to the bottom */
+
+    /* Apply the slide-up animation */
+    animation: slideUp 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s;
+    /* 0.1s delay to let the backdrop fade in first */
+    animation-fill-mode: backwards; /* Ensures it starts from opacity 0 */
+}
+
+/* Media query for larger screens */
+@media (min-width: 768px) {
+    .lightbox-content {
+        margin: 10% auto; /* Restore 10% margin on desktop */
+        width: 80%;
+    }
+}
+
+/* Specific background images for each lightbox */
+/* Uses the files you uploaded, assuming they are in the root */
+#lightbox2 .lightbox-content {
+    background-image: url('../images/Lindsay_LB_Bg.png'); /* Changed path */
+    color: white; /* Text color for Lindsay's lightbox */
+}
+
+#lightbox4 .lightbox-content {
+    background-image: url('../images/Buster_LB_Bg.png'); /* Changed path */
+    color: white; /* Text color for Buster's lightbox */
+}
+
+/* This div provides a dark background for the text to make it readable */
+.lb-text-content {
+    background-color: rgba(0, 0, 0, 0.75); /* Slightly darker text bg */
+    padding: 20px 25px; /* More padding */
+    border-radius: 0 0 10px 10px; /* Match parent's border-radius */
+    width: 100%;
+    box-sizing: border-box; /* Ensures padding doesn't break layout */
+}
+
+.lb-text-content h2 {
+    margin-top: 0;
+}
+
+/* Style for the close button */
+.close-lightbox {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    color: #fff;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    z-index: 1001; /* Above the lightbox content */
+
+    /* New styles for the button */
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1; /* Helps center the 'x' */
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.close-lightbox:hover,
+.close-lightbox:focus {
+    color: #fff;
+    background-color: rgba(255, 0, 0, 0.7); /* Red on hover */
+    cursor: pointer;
+    transform: rotate(90deg); /* Add a little spin */
+}
